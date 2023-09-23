@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cosita</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <img src="img/oficial.png" alt="Cosita">
+    <div class="heart"></div>
+    <div class="contenido">
+        <h1>TE AMO</h1>
+        <h2>Cosita ♥</h2>
+    </div>
+    
+    <section id="app">
+        <div class="modal" id="modalConfirmar">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5 text-danger" id="exampleModalToggleLabel">♥♥♥</h1>
+                </div>
+                <div v-if="mensaje==true">
+                    <div class="modal-body text-center">
+                      <h1>¿Amor, eres feliz conmigo?</h1>
+                      <hr>
+                      <h5>
+                        Antes de iniciar, deseo recordarte cuán importante eres para mí y agradecido siempre.
+                      </h5>
+                      <hr>
+                      <p>¿Ahora, me puedes responder responder con total sinceridad?</p>
+                    </div>
+                    <div class="modal-footer justify-content-center gap-3">
+                        <button @click="cerrarModal" class="btn-blue btn-lg"> Contigo siempre!</button>
+                        <button @click="loSiento()" class="btn-red btn-lg"> No, lo siento 😔</button>
+                    </div>
+                </div>
+                <div v-else>
+                    <div class="modal-body text-center">
+                        <span style="font-size: 80px;">😔</span>
+                        <h4>Porque amor, si eres la persona maravillosa que siempre imaginé y considero un privilegio tenerte a mi lado.</h4>
+                        <p>
+                            <small>¿Que puedo hacer para que seas la mujer más feliz de mundo?</small>
+                        </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+</body>
+<script src="js/axios.min.js"></script>
+<script src="js/vue.js"></script>
+<script src="js/main.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</html>

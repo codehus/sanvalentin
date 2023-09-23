@@ -1,0 +1,95 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+}
+img{
+    position: absolute;
+    height: 100%;
+    background-position: center bottom;
+    opacity: 0.5;
+}
+.heart{
+    height: 150px;
+    width: 150px;
+    background-color: red;
+    position: relative;
+    transform: rotate(45deg);
+    box-shadow: -20px 20px 150px white;
+    animation: palpitar 0.5s linear infinite alternate;
+}
+.heart::before{
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: red;
+    right: 50%;
+    border-radius: 50%;
+    box-shadow: 20px 20px 150px red;
+}
+
+.contenido{
+    position: fixed;
+    margin-bottom: 50px;
+    text-align: center;
+    color: white;
+}
+
+@keyframes palpitar{
+    0%{transform: rotate(45deg) scale(1.10);}
+    80%{transform: rotate(45deg) scale(1.0);}
+    100%{transform: rotate(45deg) scale(0.8);}
+}
+.heart::after{
+    content: "";
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: red;
+    top: -50%;
+    border-radius: 50%;
+    box-shadow: 20px 20px 150px red;
+}
+.btn-blue{
+    padding: 13px 20px 13px 20px;
+    background-color: #0027ff;
+    color: white;
+    border: none;
+    border-radius: 36px;
+}
+.btn-blue:hover{
+    background-color: #ff02d5;
+    border: #2c039c 2px solid;
+}
+.btn-red{
+    padding: 13px 20px 13px 20px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 36px;
+}
+.btn-red:hover{
+    background-color: #979296;
+    border: #111111 2px solid;
+}
+.gap-3{
+    gap: 3;
+}
+
+/* If screen size is LESS than 1200px wide */
+@media (max-width: 760px){ 
+    img{
+        display: block;
+        margin: auto;
+        position: absolute;
+        height: 50%;
+        background-position: center bottom;
+        opacity: 0.5;
+    }
+
+}
