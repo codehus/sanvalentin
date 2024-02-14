@@ -1,95 +1,118 @@
-body{
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: black;
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: black;
 }
-img{
-    position: absolute;
-    height: 100%;
-    background-position: center bottom;
-    opacity: 0.5;
+.btn-blue {
+  padding: 13px 20px 13px 20px;
+  background-color: #0027ff;
+  color: white;
+  border: none;
+  border-radius: 36px;
 }
-.heart{
-    height: 150px;
-    width: 150px;
-    background-color: red;
-    position: relative;
-    transform: rotate(45deg);
-    box-shadow: -20px 20px 150px white;
-    animation: palpitar 0.5s linear infinite alternate;
+.btn-blue:hover {
+  background-color: #ff02d5;
+  border: #2c039c 2px solid;
 }
-.heart::before{
-    content: "";
-    position: absolute;
-    height: 150px;
-    width: 150px;
-    background: red;
-    right: 50%;
-    border-radius: 50%;
-    box-shadow: 20px 20px 150px red;
+.btn-red {
+  padding: 13px 20px 13px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
 }
-
-.contenido{
-    position: fixed;
-    margin-bottom: 50px;
-    text-align: center;
-    color: white;
+.btn-red:hover {
+  background-color: #da0e0e;
 }
-
-@keyframes palpitar{
-    0%{transform: rotate(45deg) scale(1.10);}
-    80%{transform: rotate(45deg) scale(1.0);}
-    100%{transform: rotate(45deg) scale(0.8);}
+.btn-gris {
+  padding: 13px 20px 13px 20px;
+  background-color: gray;
+  color: white;
+  border: none;
+  border-radius: 8px;
 }
-.heart::after{
-    content: "";
-    position: absolute;
-    height: 150px;
-    width: 150px;
-    background: red;
-    top: -50%;
-    border-radius: 50%;
-    box-shadow: 20px 20px 150px red;
+.btn-gris:hover {
+  background-color: rgb(90, 88, 88);
 }
-.btn-blue{
-    padding: 13px 20px 13px 20px;
-    background-color: #0027ff;
-    color: white;
-    border: none;
-    border-radius: 36px;
-}
-.btn-blue:hover{
-    background-color: #ff02d5;
-    border: #2c039c 2px solid;
-}
-.btn-red{
-    padding: 13px 20px 13px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 36px;
-}
-.btn-red:hover{
-    background-color: #979296;
-    border: #111111 2px solid;
-}
-.gap-3{
-    gap: 3;
+.gap-3 {
+  gap: 3;
 }
 
-/* If screen size is LESS than 1200px wide */
-@media (max-width: 760px){ 
-    img{
-        display: block;
-        margin: auto;
-        position: absolute;
-        height: 50%;
-        background-position: center bottom;
-        opacity: 0.5;
-    }
+/* Estilo de lluvia */
 
+.rain-container {
+  position: absolute;
+  /* esto definira las compensaciones de inicio y final */
+  inset: 0;
+  /* esto nos permitira cortar los elementos que se salen del contenedor */
+  overflow: hidden;
+}
+
+/* Los keyframes nos sirve para dar un nombre y definir los fotogramas clave  */
+@keyframes flake {
+  0% {
+    /* Inicio de la animación */
+    transform: translate(var(--x-start), var(--y-start)) rotate(0);
+  }
+  100% {
+    /* Fin de la animación */
+    transform: translate(var(--x-end), var(--y-end)) rotate(50deg);
+  }
+}
+
+.rainDrop {
+  font-size: var(--sz);
+  filter: blur(var(--blur));
+  animation: flake 20s linear infinite;
+  transform: translate(var(--x-start), -15vh) rotate(0);
+  opacity: var(--a);
+}
+
+.rainDrop--s {
+  --sz: 1rem;
+  --blur: 2px;
+  --a: 0.8;
+  --x-start: 50vw;
+  --x-end: 0;
+  --y-start: 0;
+  --y-end: 100vh;
+  position: absolute;
+}
+
+.rainDrop--m {
+  --sz: 2rem;
+  --blur: 2px;
+  --a: 0.8;
+  --x-start: 50vw;
+  --x-end: 0;
+  --y-start: 0;
+  --y-end: 100vh;
+  position: absolute;
+  filter: blur(0px);
+  z-index: 50;
+}
+
+.rainDrop--l {
+  --sz: 3rem;
+  --blur: 0px;
+  --a: 0.8;
+  --x-start: 50vw;
+  --x-end: 0;
+  --y-start: 0;
+  --y-end: 100vh;
+  position: absolute;
+  z-index: 80;
+}
+
+.rainDrop--xl {
+  --sz: 6rem;
+  --blur: 4px;
+  --a: 0.5;
+  --x-start: 50vw;
+  --x-end: 0;
+  --y-start: 0;
+  --y-end: 100vh;
+  position: absolute;
+  z-index: 100;
 }
